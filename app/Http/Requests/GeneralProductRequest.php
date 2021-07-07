@@ -33,7 +33,7 @@ class GeneralProductRequest extends FormRequest
             'categories' => 'array|min:1', //[]
             'categories.*' => 'numeric|exists:categories,id',
             'tags' => 'nullable',
-            'brand_id' => 'required|exists:brands,id',
+           
             'document' => 'array|min:1',
             'document.*' => 'string',
             'price' => 'nullable|min:0|numeric',

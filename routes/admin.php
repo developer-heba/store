@@ -102,7 +102,7 @@ Route::group([
             Route::post('images/add','ProductsController@saveProductImagesDB') -> name('admin.products.images.store.db')
             ;
             Route::post('images/update/{id}','ProductsController@updateProductImagesDB') -> name('admin.products.images.update.db');
-            Route::delete('edit/image/delete/{id}','ProductsController@deleteProductImage') -> name('admin.products.images.delete');
+            Route::get('images/delete/{id}','ProductsController@deleteProductImage') -> name('admin.products.images.delete');
         });
         ################################## end brands    #######################################
 
@@ -128,9 +128,22 @@ Route::group([
         });
         ################################## end options    #######################################
 
+   ################################## sliders ######################################
+   Route::group(['prefix' => 'sliders'], function () {
+    Route::get('/', 'SliderController@addImages')->name('admin.sliders.create');
+    Route::post('images', 'SliderController@saveSliderImages')->name('admin.sliders.images.store');
+    Route::post('images/db', 'SliderController@saveSliderImagesDB')->name('admin.sliders.images.store.db');
+    Route::get('images/delete/{id}','SliderController@destroy')->name('admin.slider.delete');
+    Route::get('images/edit/{id}','SliderController@edit')->name('admin.slider.edit');
+   
+   
+      ################################## end sliders    #######################################
 
+});
 
     });
+
+     
 
     Route::group(['namespace' => 'Dashboard', 'middleware' => 'guest:admin','prefix' => 'admin'], function () {
 

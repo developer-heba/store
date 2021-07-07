@@ -455,7 +455,11 @@ DB::commit();
             if (!$image){
                 return redirect()->back();
             }
+            if(file_exists(public_path('assets/images/products/'.$image->photo))){
+                unlink(public_path('assets/images/products/'.$image->photo));
+            }
             $image->delete();
+            return redirect()->back()->with(['success' => 'تم حذف الصورة بنجاح']);
         
         } catch (\Exception $ex) {
             

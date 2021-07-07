@@ -155,29 +155,7 @@ $('.btnNext').click(function(){
     $('.nav-tabs .active').parent().prev('li').find('a').trigger('click');
 
 });
-$(".delet-image").click(function(){
-        var id = $(this).data("id");
-        var token = $(this).data("token");
-        $.ajax(
-        {
-            url: "image/delete/"+id,
-            type: 'DELETE',
-                    dataType: "JSON",
-                    data: {
-                        "id": id,
-                        "_method": 'DELETE',
-                        "_token": token
-                    },
-        
-            success: function ()
-            {
-                console.log('ok');
-                $(".image-"+id).remove();
-            }
-        });
 
-    
-    });
 $(document).on('change','#manageStock',function(){
        if($(this).val() == 1 ){
             $('#qtyDiv').show();
@@ -244,8 +222,7 @@ $(document).on('change','#manageStock',function(){
 
      
     </script>
-    @stop
-@section('script')
+ 
 
     <script>
         $('input:radio[name="type"]').change(

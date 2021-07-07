@@ -5,14 +5,14 @@
     @foreach ($product->images as $image)
     
     <div  class="image-{{$image->id}} col-3" style="margin-bottom:50px;margin-left:10px;margin-top:20px;border-radius:5px;"><img src="{{asset('assets/images/products/'.$image->photo)}}" width="200" height="200" style="display:block;">
-        <span class="btn btn-outline-primary edit-image" 
+        <a class="btn btn-outline-primary edit-image" 
          data-id='{{$image->id}}' style="width:100px;">
         تعديل الصورة
-    </span>
-        <span  class="btn btn-outline-primary delet-image " data-id="{{ $image->id }}" data-token="{{ csrf_token() }}" 
+    </a>
+        <a  class="btn btn-outline-primary  " href="{{asset('admin/products/images/delete/'.$image->id)}} "
         style="width:100px;">
         حذف الصورة
-    </span>
+        </a>
   </div>
     @endforeach
     <div class="col-12">
