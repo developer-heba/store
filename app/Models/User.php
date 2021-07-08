@@ -36,4 +36,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function wishlist()
+    {
+        return $this->belongsToMany(Product::class, 'wish_lists')->withTimestamps();
+    }
+
+    public function wishlistHas($productId)
+    {
+        return $this->wishlist()->where('product_id', $productId)->exists();
+    }
 }

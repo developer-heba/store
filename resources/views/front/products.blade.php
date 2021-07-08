@@ -93,20 +93,21 @@
                                                      data-id-product="22" data-id-product-attribute="408" itemscope=""
                                                      itemtype="http://schema.org/Product">
                                                     <div class="thumbnail-container">
+                                                        @if($product -> images->count()>0)
                                                         <a href="{{route('product.details',$product -> slug)}}"
                                                            class="thumbnail product-thumbnail two-image">
                                                             <img class="img-fluid image-cover"
-                                                                 src="{{asset('assets/images/products/'.$product -> images[0] -> photo) ?? ''}}"
+                                                                 src="{{$product -> images[0] -> photo ?? ''}}"
                                                                  alt=""
                                                                  data-full-size-image-url="{{$product -> images[0] -> photo ?? ''}}"
                                                                  width="600" height="600">
                                                             <img class="img-fluid image-secondary"
-                                                                 src="{{asset('assets/images/products/'.$product -> images[0] -> photo) ?? ''}}"
+                                                                 src="{{$product -> images[0] -> photo ?? ''}}"
                                                                  alt=""
-                                                                 data-full-size-image-url="{{asset('assets/images/products/'.$product -> images[0] -> photo) ?? ''}}"
+                                                                 data-full-size-image-url="{{$product -> images[0] -> photo ?? ''}}"
                                                                  width="600" height="600">
                                                         </a>
-
+                                                          @endif
 
                                                         <div class="product-flags new">New</div>
                                                     </div>
@@ -223,6 +224,7 @@
             </div>
         </div>
     </div>
+    
 
     @include('front.includes.not-logged')
     @include('front.includes.alert')   <!-- we can use only one with dynamic text -->
@@ -253,6 +255,7 @@
             @guest()
                 $('.not-loggedin-modal').css('display','block');
             @endguest
+        
             $.ajax({
                 type: 'post',
                 url: "{{Route('wishlist.store')}}",
@@ -266,6 +269,7 @@
                         $('.alert-modal2').css('display','block');
                 }
             });
+           h
         });
 
         $(document).on('click', '.cart-addition', function (e) {

@@ -172,7 +172,7 @@
                                                             <a class="removeFromWishlist addToWishlist  wishlistProd_22" href="#"
                                                                data-product-id="{{$product -> id}}">
                                                                 <i class="fa fa-heart"></i>
-                                                                <span>remove to Wishlist</span>
+                                                                <span>remove from Wishlist</span>
                                                             </a>
                                                             <a href="#" class="quick-view hidden-sm-down"
                                                                data-product-id="{{$product -> id}}">

@@ -27,7 +27,7 @@
                     </div>
                     <section id="content" class="page-content">
                         <section class="login-form">
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{route('login') }}">
                                 @csrf
                                 <section>
                                     <div class="form-group row no-gutters">

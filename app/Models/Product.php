@@ -79,7 +79,7 @@ class Product extends Model
      * @var array
      */
     protected $translatedAttributes = ['name', 'description', 'short_description'];
-
+    protected $hidden = ['translations'];
     public function brand()
     {
         return $this->belongsTo(Brand::class)->withDefault();
