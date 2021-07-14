@@ -297,7 +297,7 @@
 
                                                             <a class="addToWishlist wishlistProd_15" href="#"
                                                                data-rel="15"
-                                                               onclick="WishlistCart('wishlist_block_list', 'add', '15', false, 1); return false;" >
+                                                               onclick="WishlistCart('wishlist_block_list', 'add', '15', false, 1); return false;">
                                                                 <i class="fa fa-heart"></i>
                                                                 <span>Add to Wishlist</span>
                                                             </a>

@@ -547,12 +547,14 @@
             }
         });
 
-        $(document).on('click','.addToWishlist', function (e) {
+        $(document).on('click', '.addToWishlist', function (e) {
             e.preventDefault();
 
             @guest()
             $('.not-loggedin-modal').css('display', 'block');
             @endguest
+
+
             $.ajax({
                 type: 'post',
                 url: "{{Route('wishlist.store')}}",

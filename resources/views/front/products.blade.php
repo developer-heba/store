@@ -93,7 +93,6 @@
                                                      data-id-product="22" data-id-product-attribute="408" itemscope=""
                                                      itemtype="http://schema.org/Product">
                                                     <div class="thumbnail-container">
-                                                        @if($product -> images->count()>0)
                                                         <a href="{{route('product.details',$product -> slug)}}"
                                                            class="thumbnail product-thumbnail two-image">
                                                             <img class="img-fluid image-cover"
@@ -107,7 +106,7 @@
                                                                  data-full-size-image-url="{{$product -> images[0] -> photo ?? ''}}"
                                                                  width="600" height="600">
                                                         </a>
-                                                          @endif
+
 
                                                         <div class="product-flags new">New</div>
                                                     </div>
@@ -167,7 +166,7 @@
                                                                 @csrf
                                                                 <input type="hidden" name="id_product"
                                                                        value="{{$product -> id}}">
-                                                                <a class="add-to-cart cart-addition" data-product-id="{{$product -> id}}" data-product-slug="{{$product -> slug}}" href="#"
+                                                                <a class="cart-addition  add-to-cart " data-product-id="{{$product -> id}}" data-product-slug="{{$product -> slug}}" href="#"
                                                                    data-button-action="add-to-cart"><i
                                                                         class="novicon-cart"></i><span>Add to cart</span></a>
                                                             </form>
@@ -224,7 +223,6 @@
             </div>
         </div>
     </div>
-    
 
     @include('front.includes.not-logged')
     @include('front.includes.alert')   <!-- we can use only one with dynamic text -->
@@ -255,7 +253,6 @@
             @guest()
                 $('.not-loggedin-modal').css('display','block');
             @endguest
-        
             $.ajax({
                 type: 'post',
                 url: "{{Route('wishlist.store')}}",
@@ -269,7 +266,6 @@
                         $('.alert-modal2').css('display','block');
                 }
             });
-           h
         });
 
         $(document).on('click', '.cart-addition', function (e) {
@@ -280,7 +276,7 @@
                 url: "{{Route('site.cart.add')}}",
                 data: {
                     'product_id': $(this).attr('data-product-id'),
-                    'product_slug' : $(this).attr('data-product-slug'),
+                    'product_slug' : $(this).attr('data-product-slug')
                 },
                 success: function (data) {
 

@@ -105,29 +105,3 @@
         </div>
     </div>
 </div>
-<script>
- 
-
-    $(document).on('click', '.addToWishlist', function (e) {
-        e.preventDefault();
-
-        @guest()
-        $('.not-loggedin-modal').css('display', 'block');
-        @endguest
-
-
-        $.ajax({
-            type: 'post',
-            url: "{{Route('wishlist.store')}}",
-            data: {
-                'productId': $(this).attr('data-product-id'),
-            },
-            success: function (data) {
-                if (data.wished)
-                    $('.alert-modal').css('display', 'block');
-                else
-                    $('.alert-modal2').css('display', 'block');
-            }
-        });
-    });
-</script>

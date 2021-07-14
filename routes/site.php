@@ -33,7 +33,8 @@ Route::get('fat','PaymentController@fatoorah');
          */
         Route::group(['prefix' => 'cart'], function () {
             Route::get('/', 'CartController@getIndex')->name('site.cart.index');
-            Route::post('/cart/add/{slug?}', 'CartController@postAdd')->name('site.cart.add');
+            Route::post('/add/{slug?}', 'CartController@postAdd')->name('site.cart.add');
+            Route::post('/remove/{slug}', 'CartController@removeitem')->name('site.cart.remove');
             Route::post('/update/{slug}', 'CartController@postUpdate')->name('site.cart.update');
             Route::post('/update-all', 'CartController@postUpdateAll')->name('site.cart.update-all');
         });

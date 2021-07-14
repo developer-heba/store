@@ -81,7 +81,7 @@
 
                                                                                             data-product-id="5"
                                                                                             type="text"
-                                                                                            value="1"
+                                                                                            value="{{	$product->quantity}}"
                                                                                             name="product-quantity-spin"
                                                                                             min="1"
                                                                                             style="display: block;"><span
@@ -95,11 +95,11 @@
                                                                         <div
                                                                             class="col-sm-3 col-xs-12 text-xs-right align-self-end">
                                                                             <div class="cart-line-product-actions shop-item">
-                                                                                <a onclick="$(this).closest('.cart-item').remove()" class="remove-from-cart"
+                                                                                <a class="remove-from-cart"
                                                                                    rel="nofollow"
                                                                                     data-link-action="delete-from-cart"
                                                                                     data-id-product="{{$product -> id}}"
-                                                                                    data-url-product="{{route('site.cart.update',$product -> slug)}}"
+                                                                                    data-url-product="{{route('site.cart.remove',$product -> slug)}}"
                                                                                     data-id-customization="">
                                                                                     <i class="fa fa-trash-o"
                                                                                        aria-hidden="true"></i>
@@ -131,7 +131,7 @@
                             <div class="cart-summary">
                                 <div class="cart-detailed-totals">
                                     <div class="cart-summary-products">
-                                        <div class="summary-label">There are  ({{$basket -> itemCount()}}) items in your cart</div>
+                                        <div class="summary-label">There are( <span class="itemcount"> {{$basket -> itemCount()}}</span>) items in your cart</div>
                                     </div>
 
                                     <div class="">
@@ -144,13 +144,12 @@
 
                                 </div>
 
-
+                                  @if($basket -> subTotal()>0&&$basket -> itemCount()>0)
                                 <div class="checkout text-xs-center card-block">
-                                    <a href="{{route('payment',$basket -> subTotal())}}" type="button" class="btn btn-primary"> proceed to payment
+                                    <a href="{{route('payment',$basket -> subTotal())}}" type="button" class="btn btn-primary payment"> proceed to payment
                                     </a>
                                 </div>
-
-
+                                @endif
                             </div>
 
 
@@ -193,7 +192,7 @@
         </div>
     </div>
 @stop
-remove-from-cart
+
 
 @section('scripts')
     <script>
@@ -207,17 +206,40 @@ remove-from-cart
 
         $(document).on('click', '.remove-from-cart', function (e) {
             e.preventDefault();
-
+            $(this).closest('.cart-item').remove()
             $.ajax({
                 type: 'post',
                 url: $(this).attr('data-url-product'),
-                data: {
-                    'product_id': $(this).attr('data-id-product'),
-                 },
+                data:{
+    
+                 'product_id': $(this).attr('data-id-product'),
+                }
+               ,
                 success: function (data) {
+                    var itemcount=data.itemcount;
+                   var subtotal=data.total;
+        
+            
+                    $('.itemcount').text( itemcount);
+                    
+                    $('.value').text( subtotal);
+                    $('.payment').attr('href', "{{ URL::asset('/') }}"+"{{App::getLocale()}}"+"/payment/"+subtotal);
+                    if(itemcount ==0 &&subtotal==0){
+                        $('.checkout').css('display','none');
 
+                    }
                 }
             });
+        });
+        
+        $(document).on('click', '.bootstrab-touchspin-up', function () {
+
+
+            alert('hello');
+ 
+            $('.summary-label').text('there are');
+
+           
         });
     </script>
     @stop
