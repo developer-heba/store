@@ -9,6 +9,7 @@ return [
     'status'              =>' status ',
     'controls'              =>'controls ',
     'update'              =>'update ',
+    'Add'              =>'Add ',
     'back'              =>'back ',
 
 ];

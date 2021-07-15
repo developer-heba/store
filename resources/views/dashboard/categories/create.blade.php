@@ -168,7 +168,7 @@
                                                     <i class="ft-x"></i>  {{__('admin/general.back')}}
                                                 </button>
                                                 <button type="submit" class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i>  {{__('admin/general.update')}}
+                                                    <i class="la la-check-square-o"></i>  {{__('admin/general.Add')}}
                                                 </button>
                                             </div>
                                         </form>

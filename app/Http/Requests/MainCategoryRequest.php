@@ -30,5 +30,15 @@ class MainCategoryRequest extends FormRequest
              'slug' => 'required|unique:categories,slug,'.$this -> id
         ];
     }
-
+   
+    public function messages()
+    {
+        return [
+             'name.required_name' => __('admin/validation.required_name'),
+             'type.required_type' => __('admin/validation.required_type'),
+             'slug.required_sulg' => __('admin/validation.required_sulg'),
+             'slug.unique' => __('admin/validation.unique'),
+        ];
+    }
 }
+
