@@ -2,7 +2,7 @@
 
 return [
     
-    'Home'     =>'Home',
+  
 
     'settings' => 'settings',
     'shipping methods' => 'shipping methods',

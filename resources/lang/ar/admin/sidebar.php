@@ -2,7 +2,7 @@
 
 return [
 
-    'Home'     =>'الرئيسسة',
+
     'settings' => 'الاعدادت',
     'shipping methods' => 'وسائل التوصيل',
     'categories' => 'الأقسام',

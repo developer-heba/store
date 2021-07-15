@@ -14,13 +14,13 @@ class MainCategoriesController extends Controller
 
     public function index()
     {
-        $categories = Category::with('_parent')->orderBy('id','DESC') -> paginate(PAGINATION_COUNT);
+        $categories = Category::all() ;
         return view('dashboard.categories.index', compact('categories'));
     }
 
     public function create()
     {
-         $categories =   Category::select('id','parent_id')->get();
+         $categories = Category::select('id','parent_id')->get();
         return view('dashboard.categories.create',compact('categories'));
     }
 
@@ -49,13 +49,18 @@ class MainCategoriesController extends Controller
 
 
             $category = Category::create($request->except('_token'));
-
+ 
             //save translations
-            $category->name = $request->name;
-            $category->save();
-
-            return redirect()->route('admin.maincategories')->with(['success' => 'تم ألاضافة بنجاح']);
+            if( $category){
+                $category->name = $request->name;
+                $category->save();      
             DB::commit();
+           if( $category->save())
+            return redirect()->route('admin.maincategories')->with(['success' => 'تم ألاضافة بنجاح']);
+            else
+            return redirect()->route('admin.maincategories')->with(['error' => '  حدث خطا ما برجاء المحاوله لاحقا']);
+            }
+
 
         } catch (\Exception $ex) {
             DB::rollback();
@@ -81,7 +86,11 @@ class MainCategoriesController extends Controller
 
     public function update($id, MainCategoryRequest $request)
     {
+
+      
+
         try {
+         
             //validation
 
             //update DB
@@ -97,7 +106,7 @@ class MainCategoriesController extends Controller
             else
                 $request->request->add(['is_active' => 1]);
 
-            $category->update($request->all());
+            $category->update($request->except('_token'));
 
             //save translations
             $category->name = $request->name;
@@ -108,7 +117,7 @@ class MainCategoriesController extends Controller
 
             return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
         }
-
+        return redirect()->route('admin.maincategories')->with(['success' => 'تم ألتحديث بنجاح']);
     }
 
 

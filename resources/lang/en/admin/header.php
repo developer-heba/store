@@ -3,6 +3,7 @@
 return [
 
     'welcome'     =>'welcome',
+    'dashboard'     =>' Dashboard',
   
  
 
