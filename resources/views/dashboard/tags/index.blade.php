@@ -6,13 +6,14 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title"> Tags </h3>
+                    <h3 class="content-header-title"> {{__('admin/tags.tags')}} </h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{__('admin/general.Home')}}
+                                            </a>
                                 </li>
-                                <li class="breadcrumb-item active"> Tags
+                                <li class="breadcrumb-item active"> {{__('admin/tags.tags')}}
                                 </li>
                             </ol>
                         </div>
@@ -47,9 +48,12 @@
                                             class="table display nowrap table-striped table-bordered ">
                                             <thead class="">
                                             <tr>
-                                                <th>الاسم </th>
-                                                <th> الاسم بالرابط</th>
-                                                 <th>الإجراءات</th>
+                                                <th> {{__('admin/tags.name')}}
+                                                </li> </th>
+                                                <th>  {{__('admin/tags.sulg_name')}}
+                                                </li> </th>
+                                                 <th> {{__('admin/general.controls')}}
+                                                </li></th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -63,11 +67,11 @@
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
                                                                 <a href="{{route('admin.tags.edit',$tag -> id)}}"
-                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
+                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">{{__('admin/general.edit')}}</a>
 
 
                                                                 <a href="{{route('admin.tags.delete',$tag -> id)}}"
-                                                                   class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
+                                                                   class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">{{__('admin/general.delete')}}</a>
 
 
 

@@ -16,7 +16,7 @@ return [
     'options'=>'options ',
     'users'=>'  users  ',
     'roles'=>' roles ',
-    'free_shippng'=>' free shipping  ',
+    'free_shipping'=>' free shipping  ',
     'inner_shipping'=>' inner shipping  ',
     'outer_shipping'=>' outer shipping  ',
 ];

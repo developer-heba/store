@@ -50,7 +50,7 @@
                                                 <th>{{__('admin/brands.name')}}  </th>
                                                 <th>{{__('admin/general.status')}} </th>
                                                 <th> {{__('admin/brands.brand_photo')}} </th>
-                                                <th>الإجراءات</th>
+                                                <th>{{__('admin/general.controls')}}</th>
                                             </tr>
                                             </thead>
                                             <tbody>

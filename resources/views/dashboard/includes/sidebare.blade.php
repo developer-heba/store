@@ -155,12 +155,12 @@
                            data-i18n="nav.templates.vert.main"> {{__('admin/sidebar.shipping methods')}} </a>
                         <ul class="menu-content">
                             <li><a class="menu-item" href="{{route('edit.shippings.methods','free')}}"
-                                   data-i18n="nav.templates.vert.classic_menu"> {{__('admin/sidebar.free_shippng')}}  </a>
+                                   data-i18n="nav.templates.vert.classic_menu"> {{__('admin/sidebar.free_shipping')}}  </a>
                             </li>
-                            <li><a class="menu-item" href="{{route('edit.shippings.methods','inner')}}">{{__('admin/sidebar.inner_shippng')}}  </a>
+                            <li><a class="menu-item" href="{{route('edit.shippings.methods','inner')}}">{{__('admin/sidebar.inner_shipping')}}  </a>
                             </li>
                             <li><a class="menu-item" href="{{route('edit.shippings.methods','outer')}}"
-                                   data-i18n="nav.templates.vert.compact_menu">  {{__('admin/sidebar.outer_shippng')}} </a>
+                                   data-i18n="nav.templates.vert.compact_menu">  {{__('admin/sidebar.outer_shipping')}} </a>
                             </li>
                         </ul>
                     </li>

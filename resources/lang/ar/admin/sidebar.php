@@ -15,9 +15,9 @@ return [
     'options'      =>'قيم الخصائص',
     'users'        =>'مستخدمي لوحة التحكم ',
     'roles'        =>' الصلاحيات ',
-    'free_shippng'=>' توصيل مجاني ',
-    'inner_shippng'=>' توصيل داخلي ',
-    'outer_shippng'=>' توصيل خارجي ',
+    'free_shipping'=>' توصيل مجاني ',
+    'inner_shipping'=>' توصيل داخلي ',
+    'outer_shippnig'=>' توصيل خارجي ',
  
 
 ];

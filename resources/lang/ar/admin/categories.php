@@ -1,9 +1,10 @@
 <?php
 
 return [
-//create cTEGORY PAGE
+
     'category_data'   => 'بيانات القسم ',
     'add_category'    => ' اضافة قسم  ',
+    'edit_category'    => '  تعديل قسم  ',
     'choose_category' => 'اختر القسم ',
     'sub_category'              =>' sub Category ',
     'main_adress'       =>'الأقسام',
