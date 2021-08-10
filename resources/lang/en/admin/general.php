@@ -11,5 +11,6 @@ return [
     'update'              =>'update ',
     'Add'              =>'Add ',
     'back'              =>'back ',
+    'general data'          =>         'general data',
 
 ];

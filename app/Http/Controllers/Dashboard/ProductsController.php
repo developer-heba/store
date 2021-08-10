@@ -90,6 +90,7 @@ class ProductsController extends Controller
 public function storeall(GeneralProductRequest $request)
 {
     DB::beginTransaction();
+   
 
     if (!$request->has('is_active'))
         $request->request->add(['is_active' => 0]);
@@ -463,6 +464,25 @@ DB::commit();
         
         } catch (\Exception $ex) {
             
+            return redirect()->route('admin.products')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+        }
+    }
+    
+    public function destroy($id)
+    {
+
+        try {
+            //get specific categories and its translations
+            $product = Product::orderBy('id', 'DESC')->find($id);
+
+            if (!$product)
+                return redirect()->route('admin.maincategories')->with(['error' => ' this product not found ']);
+
+            $product->delete();
+
+            return redirect()->route('admin.products')->with(['success' => 'تم  الحذف بنجاح']);
+
+        } catch (\Exception $ex) {
             return redirect()->route('admin.products')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
         }
     }

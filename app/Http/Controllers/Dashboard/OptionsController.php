@@ -63,6 +63,7 @@ class OptionsController extends Controller
         return redirect()->route('admin.options')->with(['success' => 'تم ألاضافة بنجاح']);
     }
 
+    
 
     public function getPrice($product_id)
     {
@@ -142,47 +143,44 @@ class OptionsController extends Controller
 
     public function edit($id)
     {
-
+     
+        $products= Product::active()->select('id')->get();
+        $attributes = Attribute::select('id')->get();
         //get specific categories and its translations
-        $category = Category::orderBy('id', 'DESC')->find($id);
+        $option= Option::orderBy('id', 'DESC')->find($id);
 
-        if (!$category)
-            return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
+        if (!$option)
+            return redirect()->route('admin.options')->with(['error' => 'هذا الخيار غير موجود ']);
 
-        return view('dashboard.categories.edit', compact('category'));
+        return view('dashboard.options.edit', compact('option','products','attributes'));
 
     }
 
 
-    public function update($id, MainCategoryRequest $request)
+    public function update($id, OptionsRequest $request)
     {
-        try {
-            //validation
-
-            //update DB
+        
 
 
-            $category = Category::find($id);
+            $option= Option::orderBy('id', 'DESC')->find($id);
 
-            if (!$category)
-                return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود']);
+            if (!$option)
+                return redirect()->route('admin.maincategories')->with(['error' => 'هذا الخيار غير موجود']);
 
-            if (!$request->has('is_active'))
-                $request->request->add(['is_active' => 0]);
-            else
-                $request->request->add(['is_active' => 1]);
+                DB::beginTransaction();
 
-            $category->update($request->all());
-
-            //save translations
-            $category->name = $request->name;
-            $category->save();
-
-            return redirect()->route('admin.maincategories')->with(['success' => 'تم ألتحديث بنجاح']);
-        } catch (\Exception $ex) {
-
-            return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
-        }
+                //validation
+                $option->update([
+                    'attribute_id' => $request->attribute_id,
+                    'product_id' => $request->product_id,
+                    'price' => $request->price,
+                ]);
+                //save translations
+                $option->name = $request->name;
+                $option->save();
+                DB::commit();
+        
+                return redirect()->route('admin.options')->with(['success' => 'تم التحديث بنجاح']);
 
     }
 

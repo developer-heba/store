@@ -92,7 +92,7 @@ Route::group([
 
             Route::get('edit/{id}','ProductsController@edit') -> name('admin.products.edit');
             Route::post('update/{id}','ProductsController@update') -> name('admin.products.update');
-            Route::post('delete/{id}','ProductsController@destroy') -> name('admin.products.delete');
+            Route::get('delete/{id}','ProductsController@destroy') -> name('admin.products.delete');
 
             Route::get('stock/{id}','ProductsController@getStock') -> name('admin.products.stock');
             Route::post('stock','ProductsController@saveProductStock') -> name('admin.products.stock.store');
@@ -122,6 +122,8 @@ Route::group([
             Route::get('/','OptionsController@index') -> name('admin.options');
             Route::get('create','OptionsController@create') -> name('admin.options.create');
             Route::post('store','OptionsController@store') -> name('admin.options.store');
+            Route::get('edit/{id}','OptionsController@edit') -> name('admin.options.edit');
+            Route::post('update/{id}','OptionsController@update') -> name('admin.options.update');
             Route::get('delete/{id}','OptionsController@destroy') -> name('admin.options.delete');
           //Route::get('edit/{id}','AttributesController@edit') -> name('admin.attributes.edit');
             //Route::post('update/{id}','AttributesController@update') -> name('admin.attributes.update');
@@ -157,6 +159,9 @@ Route::group([
        Route::get('/', 'UsersController@index')->name('admin.users.index');
        Route::get('/create', 'UsersController@create')->name('admin.users.create');
        Route::post('/store', 'UsersController@store')->name('admin.users.store');
+       Route::get('/edit/{id}', 'UsersController@edit')->name('admin.users.edit');
+       Route::post('/update/{id}', 'UsersController@update')->name('admin.users.update');
+       Route::post('/delete/{id}', 'UsersController@delete')->name('admin.users.delete');
    });
 
     });

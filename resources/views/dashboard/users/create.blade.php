@@ -7,12 +7,12 @@
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="">الرئيسية </a>
+                                <li class="breadcrumb-item"><a href=""> {{__('admin/general.Home')}} </a>
                                 </li>
                                 <li class="breadcrumb-item"><a href="">
-                                        مستخدمي لوحة التحكم </a>
+                                    {{__('admin/users.dashboard users')}} </a>
                                 </li>
-                                <li class="breadcrumb-item active"> أضافه مستخدمين
+                                <li class="breadcrumb-item active">  {{__('admin/general.Add')}}    {{__('admin/users.users')}}
                                 </li>
                             </ol>
                         </div>
@@ -26,7 +26,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> أضافة مستخدم جديد </h4>
+                                    <h4 class="card-title" id="basic-layout-form">    {{__('admin/users.add new user')}} </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -48,11 +48,12 @@
                                               enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-body">
-                                                <h4 class="form-section"><i class="ft-home"></i> البيانات الاساسية </h4>
+                                                <h4 class="form-section"><i class="ft-home"></i>  {{__('admin/general.general data')}} </h4>
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> الاسم
+                                                            <label for="projectinput1"> {{__('admin/users.name')}}
+                                                            </label>
                                                             </label>
                                                             <input type="text" id="name"
                                                                    class="form-control"
@@ -67,7 +68,7 @@
 
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> الايميل
+                                                            <label for="projectinput1"> {{__('admin/users.email')}}
                                                             </label>
                                                             <input type="email" id="email"
                                                                    class="form-control"
@@ -82,10 +83,10 @@
 
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> اختر الصلاحية
+                                                            <label for="projectinput1"> {{__('admin/users.choose permission')}} 
                                                             </label>
                                                             <select name="role_id" class="select2 form-control" >
-                                                                <optgroup label="من فضلك أختر الصلاحية ">
+                                                                <optgroup label="{{__('admin/users.choose permission')}} ">
                                                                     @if($roles && $roles -> count() > 0)
                                                                         @foreach($roles as $role)
                                                                             <option
@@ -106,7 +107,7 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> كلمة المرور
+                                                            <label for="projectinput1"> {{__('admin/users.password')}} 
                                                             </label>
                                                             <input type="password" id="password"
                                                                    class="form-control"
@@ -119,7 +120,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> تأكيد كلمة المرور
+                                                            <label for="projectinput1">   {{__('admin/users.password confirm')}} 
                                                             </label>
                                                             <input type="password" id=""
                                                                    class="form-control"
@@ -133,10 +134,10 @@
                                             <div class="form-actions">
                                                 <button type="button" class="btn btn-warning mr-1"
                                                         onclick="history.back();">
-                                                    <i class="ft-x"></i> تراجع
+                                                    <i class="ft-x"></i> {{__('admin/general.back')}}
                                                 </button>
                                                 <button type="submit" class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i> تحديث
+                                                    <i class="la la-check-square-o"></i>  {{__('admin/general.Add')}}
                                                 </button>
                                             </div>
                                         </form>

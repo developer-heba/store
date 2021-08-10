@@ -58,7 +58,7 @@ class AttributesController extends Controller
     }
 
 
-    public function update($id, AttributeRequest $request)
+    public function update($id, Request $request)
     {
         try {
             //validation

@@ -115,7 +115,7 @@
                                           data-i18n="nav.dash.ecommerce">   {{__('admin/sidebar.show_all')}} </a>
                     </li>
                     <li><a class="menu-item" href="{{route('admin.options.create')}}" data-i18n="nav.dash.crypto">
-                             </a>
+                        {{__('admin/sidebar.addnew')}}      </a>
                     </li>
                 </ul>
             </li>
@@ -140,7 +140,7 @@
           </a>
           <ul class="menu-content">
               <li class="active"><a class="menu-item" href="{{route('admin.users.index')}}"
-                                    data-i18n="nav.dash.ecommerce">  {{__('admin/sidebar.addnew')}} </a>
+                                    data-i18n="nav.dash.ecommerce">  {{__('admin/sidebar.show_all')}} </a>
               </li>
               <li><a class="menu-item" href="{{route('admin.users.create')}}" data-i18n="nav.dash.crypto">{{__('admin/sidebar.addnew')}} 
                        </a>

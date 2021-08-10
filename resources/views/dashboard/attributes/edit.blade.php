@@ -9,11 +9,10 @@
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="">الرئيسية </a>
+                                <li class="breadcrumb-item"><a href="">{{__('admin/general.Home')}} </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{route('admin.attributes')}}"> الماركات التجارية </a>
-                                </li>
-                                <li class="breadcrumb-item active"> تعديل - {{$attribute -> name}}
+                               
+                                <li class="breadcrumb-item active">   {{__('admin/attribute.edit')}}  {{$attribute->name}}
                                 </li>
                             </ol>
                         </div>
@@ -27,7 +26,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> تعديل ماركة تجارية </h4>
+                                    <h4 class="card-title" id="basic-layout-form">    {{__('admin/attribute.edit')}} </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -44,26 +43,24 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body">
                                         <form class="form"
-                                              action="{{route('admin.attributes.update',$attribute -> id)}}"
+                                              action="{{route('admin.attributes.update',$attribute->id)}}"
                                               method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
 
-                                            <input name="id" value="{{$attribute -> id}}" type="hidden">
-
 
                                             <div class="form-body">
 
-                                                <h4 class="form-section"><i class="ft-home"></i> بيانات   </h4>
+                                                <h4 class="form-section"><i class="ft-home"></i>  {{__('admin/general.general data')}}  </h4>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> الاسم
-                                                            </label>
+                                                            <label for="projectinput1"> {{__('admin/attribute.name')}}
+                                                                 </label>
                                                             <input type="text" id="name"
                                                                    class="form-control"
                                                                    placeholder="  "
-                                                                   value="{{$attribute -> name}}"
+                                                                   value="{{$attribute->name}}"
                                                                    name="name">
                                                             @error("name")
                                                             <span class="text-danger">{{$message}}</span>
@@ -71,17 +68,20 @@
                                                         </div>
                                                     </div>
 
+
+
                                                 </div>
 
                                             </div>
 
+
                                             <div class="form-actions">
                                                 <button type="button" class="btn btn-warning mr-1"
                                                         onclick="history.back();">
-                                                    <i class="ft-x"></i> تراجع
+                                                    <i class="ft-x"></i> {{__('admin/general.back')}}
                                                 </button>
                                                 <button type="submit" class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i> تحديث
+                                                    <i class="la la-check-square-o"></i> {{__('admin/general.update')}}
                                                 </button>
                                             </div>
                                         </form>

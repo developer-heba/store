@@ -75,26 +75,23 @@ class MainCategoriesController extends Controller
 
         //get specific categories and its translations
         $category = Category::orderBy('id', 'DESC')->find($id);
+        $categories = Category::all() ;
 
         if (!$category)
             return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
 
-        return view('dashboard.categories.edit', compact('category'));
+        return view('dashboard.categories.edit', compact('category','categories'));
 
     }
 
 
-    public function update($id, MainCategoryRequest $request)
+    public function update($id,Request $request)
     {
 
-      
+     
 
         try {
-         
-            //validation
-
-            //update DB
-
+      
 
             $category = Category::find($id);
 
@@ -107,6 +104,7 @@ class MainCategoriesController extends Controller
                 $request->request->add(['is_active' => 1]);
 
             $category->update($request->except('_token'));
+      
 
             //save translations
             $category->name = $request->name;

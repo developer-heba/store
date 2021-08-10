@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Enumerations\CategoryType;
 use Illuminate\Foundation\Http\FormRequest;
 
-class MainCategoryRequest extends FormRequest
+class AdminRequestedit extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,11 +24,11 @@ class MainCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-             'name' => 'required',
-             'type' => 'required|in:1,2',
-             'slug' => 'required|unique:categories,slug,'.$this -> id
+            "name" => 'min:2',
+            "role_id" => 'required|numeric|exists:roles,id',
+            'email' => 'required|email|unique:admins,email,'.$this -> id,
+            'password'  => 'required|min:8'
         ];
     }
 
 }
-

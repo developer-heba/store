@@ -32,6 +32,7 @@ class BrandsController extends Controller
         DB::beginTransaction();
 
         //validation
+ 
 
         if (!$request->has('is_active'))
             $request->request->add(['is_active' => 0]);

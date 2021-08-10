@@ -5,13 +5,13 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title"> الماركات التجارية </h3>
+                    <h3 class="content-header-title">   </h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{__('admin/general.Home')}}  </a>
                                 </li>
-                                <li class="breadcrumb-item active">options
+                                <li class="breadcrumb-item active">{{__('admin/options.options')}}
                                 </li>
                             </ol>
                         </div>
@@ -25,7 +25,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">جميع الماركات التجارية </h4>
+                                    <h4 class="card-title">   {{__('admin/options.add option')}} </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -47,11 +47,11 @@
                                             class="table display nowrap table-striped table-bordered scroll-horizontal">
                                             <thead class="">
                                             <tr>
-                                                <th>الاسم</th>
-                                                <th>السعر</th>
-                                                <th>المنتج</th>
-                                                <th>اخصائص</th>
-                                                <th>الإجراءات</th>
+                                                <th>  {{__('admin/options.name')}}</th>
+                                                <th>  {{__('admin/options.price')}}</th>
+                                                <th>  {{__('admin/options.product')}}</th>
+                                                <th>  {{__('admin/options.attribute')}}</th>
+                                                <th>  {{__('admin/general.controls')}}</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -66,10 +66,10 @@
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
+                                                                <a href="{{route('admin.options.edit',$option->id)}}"
+                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">  {{__('admin/general.edit')}}</a>
                                                                 <a href=""
-                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
-                                                                <a href=""
-                                                                   class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
+                                                                   class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">  {{__('admin/general.delete')}}</a>
                                                             </div>
                                                         </td>
                                                     </tr>

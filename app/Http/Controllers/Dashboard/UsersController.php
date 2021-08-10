@@ -29,6 +29,16 @@ class UsersController extends Controller {
         $roles = Role::get();
         return view('dashboard.users.create',compact('roles'));
     }
+    
+    public function edit($id){
+        $user= Admin::find($id);
+        $roles = Role::get();
+        if($user)
+        return view('dashboard.users.edit',compact('user','roles'));
+        else
+        return redirect()->route('admin.users.index')->with(['error' => 'this user not exist']);
+    }
+
 
 
     public function store(AdminRequest $request) {
@@ -37,6 +47,36 @@ class UsersController extends Controller {
         $user->email = $request->email;
         $user->password = bcrypt($request->password);   // the best place on model
         $user->role_id = $request->role_id;
+
+        // save the new user data
+        if($user->save())
+             return redirect()->route('admin.users.index')->with(['success' => 'تم التحديث بنجاح']);
+        else
+            return redirect()->route('admin.users.index')->with(['success' => 'حدث خطا ما']);
+
+    }
+    
+    public function update(AdminRequest $request,$id) {
+        $user= Admin::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role_id = $request->role_id;
+        if (!$request->password =="oldpassword"){
+            $user->password =$user->password;   // the best place on model
+            
+        }else{
+            $user->password= bcrypt($request->password);
+            $request->password_confirmation= bcrypt($request->password);
+
+        }
+
+
+
+
+
+
+  
+
 
         // save the new user data
         if($user->save())

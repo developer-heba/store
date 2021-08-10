@@ -6,13 +6,13 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title">الصلاحيات </h3>
+                    <h3 class="content-header-title"> {{__('admin/users.users')}}  </h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{__('admin/general.Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">الصلاحيات
+                                <li class="breadcrumb-item active">{{__('admin/users.users')}}
                                 </li>
                             </ol>
                         </div>
@@ -26,7 +26,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title"> جميع الصلاحيات </h4>
+                                    <h4 class="card-title">  {{__('admin/users.all users')}} </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -48,10 +48,10 @@
                                             class="table display nowrap table-striped table-bordered">
                                             <thead class="">
                                             <tr>
-                                                <th>الاسم</th>
-                                                <th>البريد الالكتروني </th>
-                                                <th>الصلاحيه </th>
-                                                <th>الإجراءات</th>
+                                                <th>{{__('admin/users.name')}}</th>
+                                                <th> {{__('admin/users.email')}} </th>
+                                                <th>{{__('admin/users.permission')}} </th>
+                                                <th>{{__('admin/general.controls')}}</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -67,8 +67,13 @@
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
-                                                                <a href=""
-                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل </a>
+                                                                <a href="{{route('admin.users.edit',$user -> id)}}"
+                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">{{__('admin/general.edit')}} </a>
+                                                            </div>
+                                                            <div class="btn-group" role="group"
+                                                                 aria-label="Basic example">
+                                                                <a href="{{route('admin.users.delete',$user -> id)}}"
+                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">{{__('admin/general.delete')}} </a>
                                                             </div>
                                                         </td>
                                                     </tr>
